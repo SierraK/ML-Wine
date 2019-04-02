@@ -56,13 +56,92 @@ Red Wine:
   
 ### Overall Results
 When using the test set the scores were close but none of them were that high. Looking at the MSE the data does not appear to be overfitted because the numbers are very close. After doing some research perhaps using a decision tree or a random forest would be better to predict the quality of wine instead of using linear regression. 
+
+
+
   
+### Classification
+I will be testing to see if the decision tree or the SVC does a better job at classifying whether the type of wine is red or white using the wines features. 
+
+The dataset was cleaned the same way as the linear regression notebook but this time the two types of wine were in the same data set so we could classify them.
+
+#### Decision Tree
+Initally I used the features alcohol and quality to see if it could be classified using those two features and it got these scores:
+
+Confusion Matrix: 
+
+  [93 1205
   
+  58 3841]
   
+- Accuracy is  0.7569751779873004
+
+- Precision is  0.7249061994745626
+
+- Sensitivity is  0.7569751779873004
+
+- F1 is  0.6763696358184811
+
+I changed the X features to alcohol, residual sugar, and volatile acidty. This time the model got much better scores: 
+
+Confusion Matrix: 
+
+  [1298   0
   
+  13   3886]
   
+- Accuracy is  0.9974985568597268
+
+- Precision is  0.9975233614065029
+
+- Sensitivity is  0.9974985568597268
+
+- F1 is  0.99750270034275
+
+#### SVC
+Initally I used the same X features to predict the type as before, the alcohol, residual sugar, and volatile acidity. In the SVC the model scored a 91% whereas the decision tree scored a 99%. 
+
+Confusion Matrix: 
+
+  [974  324
   
+  101  3798]
   
+- Accuracy is  0.9182220511833751
+
+- Precision is  0.9175633550841831
+
+- Sensitivity is  0.9182220511833751
+
+- F1 is  0.9155163519780091
+
+So I decided to add another feature to see if it would do better. The second time I added chlorides to the list of features I used and it scored a 92% this time. When I tested it using the test set the accuarcy and F1 score went down 1% so it could be slightly overfitting. 
+
+Confusion Matrix: 
+
+  [994  304
+  
+  86   3813]
+  
+- Accuracy is  0.924956705791803
+
+- Precision is  0.9247138539283412
+
+- Sensitivity is  0.924956705791803
+
+- F1 is  0.922537382531821
+
+
+Here are some graphs to show kind of where the line between the different features would be to differentiate between the red and white wines.
+
+![Comparing Alcohol and Acidity](https://github.com/44-599-machine-learning-S19/machine-learning-project-SierraK/blob/master/images/comparison1.PNG)
+
+![Comparing Acidity and Sugar](https://github.com/44-599-machine-learning-S19/machine-learning-project-SierraK/blob/master/images/comparison2.PNG)
+
+### Overall Results
+The decision tree did a better job at classifying the type of wine with an accuracy and a F1 score of 99%. It used the features alcohol, residual sugar, and volatile acidity which makes sense because in the correlation heat maps those had the largest affects on the wine. 
+
+The SVM did a little bit worse but still good with an accuracy and F1 score of 92% using the features alcohol, chlorides, volatile acidity, and residual sugar. There is a chance it is slighlty overfitting though because in the testing of the SVM it did slightly worse than the training set. 
   
   
   
