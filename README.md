@@ -143,7 +143,9 @@ The decision tree did a better job at classifying the type of wine with an accur
 
 The SVM did a little bit worse but still good with an accuracy and F1 score of 92% using the features alcohol, chlorides, volatile acidity, and residual sugar. There is a chance it is slighlty overfitting though because in the testing of the SVM it did slightly worse than the training set. 
   
-  
+## Poster
+
+![Wine Poster](images/wine_poster.PNG)
   
   
   
